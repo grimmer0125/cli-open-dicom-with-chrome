@@ -22,19 +22,14 @@ function getFilePath() {
     let fileURL = '';
     const stats = fs.lstatSync(absPath);
     if (stats.isDirectory()) {
-      console.log('is folder');
-
       const files = fs.readdirSync(absPath);
       files.forEach((file: string) => {
         const fileAbsPath = `${absPath}/${file}`;
         if (!fs.lstatSync(fileAbsPath).isDirectory()) {
-          console.log('file', file);
           if (!fileURL) {
             fileURL = '#';
           }
           fileURL += `file://${fileAbsPath}`;
-        } else {
-          console.log('file is folder', file);
         }
       });
     } else {
