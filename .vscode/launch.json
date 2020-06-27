@@ -6,13 +6,13 @@
     "configurations": [{
         "type": "node",
         "request": "launch",
-        "cwd": "${workspaceFolder}",
+        "cwd": "${workspaceFolder}/src",
         "name": "Debug Node.js",
         "runtimeArgs": [
             "-r",
             "${workspaceFolder}/node_modules/ts-node/register"
         ],
-        "args": ["src/index.ts"],
+        "args": ["index.ts"],
         "outputCapture": "std"
     }, ]
 }
