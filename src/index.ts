@@ -2,38 +2,54 @@
 
 const shell = require('shelljs');
 const os = require('os');
-var path = require('path');
+const path = require('path');
+const fs = require('fs');
 
 // TODO1:
 // 1. [done] read single file, with file name parameter
 // 2. [done] global npm package
-// 3. use "dicom" to open chrome extension
+// 3. [done] use "dicom" to open chrome extension
 // TODO2:
-// 1. read folder parameter, "./"" or ${some folder}
+// 1. done] read folder parameter, "./"" or ${some folder}
 // 2. (optional) read multiple files, a_file b_file
 
-// node index.ts fileName, or yarn dev fileName
-// console.log(process.argv);
-let filePath = '';
-if (process.argv.length > 2) {
-  filePath = process.argv[2];
-  filePath = path.resolve(filePath); // process.cwd(). process path
-  // console.log(filePath);
+function getFilePath() {
+  // node index.ts fileName, or yarn dev fileName, or dicom fileName?
+  if (process.argv.length > 2) {
+    const fileOrFolderPath = process.argv[2];
+    const absPath = path.resolve(fileOrFolderPath); // process.cwd(). process path
 
-  // if (fileName.indexOf('/') === -1) {
-  //   // TODO: no file path included, should add
-  //   console.log(__dirname); // script path, https://flaviocopes.com/node-get-current-folder/
-  //   fileName = `${__dirname}/${fileName}`;
-  // }
+    let fileURL = '';
+    const stats = fs.lstatSync(absPath);
+    if (stats.isDirectory()) {
+      console.log('is folder');
+
+      const files = fs.readdirSync(absPath);
+      files.forEach((file: string) => {
+        const fileAbsPath = `${absPath}/${file}`;
+        if (!fs.lstatSync(fileAbsPath).isDirectory()) {
+          console.log('file', file);
+          if (!fileURL) {
+            fileURL = '#';
+          }
+          fileURL += `file://${fileAbsPath}`;
+        } else {
+          console.log('file is folder', file);
+        }
+      });
+    } else {
+      fileURL += `#file://${absPath}`;
+    }
+
+    return fileURL;
+  }
+  return '';
 }
 
-// https://chrome.google.com/webstore/detail/dicom-image-viewer/ehppmcooahfnlfhhcflpkcjmonkoindc
-const extensionURL =
-  'chrome-extension://ehppmcooahfnlfhhcflpkcjmonkoindc/index.html';
-let fileURL = '';
-if (filePath) {
-  fileURL = `#file://${filePath}`;
-}
+const fileURL = getFilePath();
+const extensionID = 'fpklmaeeoagikoaiakadencfmhodampd'; // ehppmcooahfnlfhhcflpkcjmonkoindc
+const extensionURL = `chrome-extension://${extensionID}/index.html`;
+
 const chromeURL = `${extensionURL}${fileURL}`;
 
 const platform = os.platform();
