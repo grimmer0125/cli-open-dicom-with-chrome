@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "ts-node src/index.ts",
+    "dev": "ts-node src/index.ts",
     "build": "tsc",
     "prepare": "tsc"
   },
@@ -31,6 +32,7 @@
   "dependencies": {
     "@types/node": "^14.0.14",
     "open": "^7.0.4",
+    "shelljs": "^0.8.4",
     "ts-node": "^8.10.2"
   }
 }
