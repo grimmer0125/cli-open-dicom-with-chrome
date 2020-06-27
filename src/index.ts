@@ -1,22 +1,24 @@
+#!/usr/bin/env node
+
 const shell = require('shelljs');
 const os = require('os');
 var path = require('path');
 
 // TODO1:
 // 1. [done] read single file, with file name parameter
-// 2. global npm package
+// 2. [done] global npm package
+// 3. use "dicom" to open chrome extension
 // TODO2:
-// 2. read current folder without any parameters
-// 3. read folder parameter, "./"" or ${some folder}
-// 4. read multiple files, a_file b_file
+// 1. read folder parameter, "./"" or ${some folder}
+// 2. (optional) read multiple files, a_file b_file
 
 // node index.ts fileName, or yarn dev fileName
-console.log(process.argv);
+// console.log(process.argv);
 let filePath = '';
 if (process.argv.length > 2) {
   filePath = process.argv[2];
   filePath = path.resolve(filePath); // process.cwd(). process path
-  console.log(filePath);
+  // console.log(filePath);
 
   // if (fileName.indexOf('/') === -1) {
   //   // TODO: no file path included, should add
@@ -25,13 +27,14 @@ if (process.argv.length > 2) {
   // }
 }
 
+// https://chrome.google.com/webstore/detail/dicom-image-viewer/ehppmcooahfnlfhhcflpkcjmonkoindc
 const extensionURL =
   'chrome-extension://ehppmcooahfnlfhhcflpkcjmonkoindc/index.html';
 let fileURL = '';
 if (filePath) {
-  fileURL = `file://${filePath}`;
+  fileURL = `#file://${filePath}`;
 }
-const chromeURL = `${extensionURL}#${fileURL}`;
+const chromeURL = `${extensionURL}${fileURL}`;
 
 const platform = os.platform();
 if (platform === 'darwin') {
