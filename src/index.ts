@@ -42,7 +42,7 @@ function getFilePath() {
 }
 
 const fileURL = getFilePath();
-const extensionID = 'fpklmaeeoagikoaiakadencfmhodampd'; // ehppmcooahfnlfhhcflpkcjmonkoindc
+const extensionID = 'ehppmcooahfnlfhhcflpkcjmonkoindc';
 const extensionURL = `chrome-extension://${extensionID}/index.html`;
 
 const chromeURL = `${extensionURL}${fileURL}`;
