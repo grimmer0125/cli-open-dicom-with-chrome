@@ -2,7 +2,7 @@
 
 ## Installation package globally
 
-Either `npm install -g cli-dicom-open-chrome` or `yarn global cli-dicom-open-chrome`
+Either `npm install -g cli-open-dicom-with-chrome` or `yarn global cli-open-dicom-with-chrome`
 
 ## Usage
 
