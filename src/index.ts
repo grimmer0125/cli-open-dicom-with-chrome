@@ -11,7 +11,6 @@ function getFilePath() {
     let fileURL = '';
 
     process.argv.forEach((fileOrFolderPath, index) => {
-      console.log('i:', index, fileOrFolderPath);
       if (index < 2) {
         return;
       }
