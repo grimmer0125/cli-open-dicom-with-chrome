@@ -2,7 +2,8 @@
 
 ## Installation package globally
 
-Either `npm install -g cli-open-dicom-with-chrome` or `yarn global add cli-open-dicom-with-chrome`
+Either `npm install -g cli-open-dicom-with-chrome` or `yarn global add cli-open-dicom-with-chrome`.
+If you encounter permission issue when using `npm install`, try to add `sudo` again, `sudo npm install -g cli-open-dicom-with-chrome`
 
 ## Usage
 
