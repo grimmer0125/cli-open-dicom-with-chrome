@@ -1,5 +1,5 @@
 {
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@types/node": "^14.0.14",
-    "open": "^7.0.4",
     "shelljs": "^0.8.4",
     "ts-node": "^8.10.2"
   }
