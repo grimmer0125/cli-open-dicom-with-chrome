@@ -8,13 +8,8 @@
         "request": "launch",
         "cwd": "${workspaceFolder}/src",
         "name": "Debug Node.js",
-        "runtimeArgs": [
-            "-r",
-            "${workspaceFolder}/node_modules/ts-node/register",
-            "-r",
-            "${workspaceFolder}/node_modules/tsconfig-paths/register",
-        ],
+        "runtimeArgs": ["-r", "${workspaceFolder}/node_modules/ts-node/register", "-r", "tsconfig-paths/register"],
         "args": ["index.ts"],
         "outputCapture": "std"
-    }, ]
+    }]
 }

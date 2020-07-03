@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require('module-alias/register');
 
 const shell = require('shelljs');
 const os = require('os');
