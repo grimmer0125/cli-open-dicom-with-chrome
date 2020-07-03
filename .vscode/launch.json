@@ -10,7 +10,9 @@
         "name": "Debug Node.js",
         "runtimeArgs": [
             "-r",
-            "${workspaceFolder}/node_modules/ts-node/register"
+            "${workspaceFolder}/node_modules/ts-node/register",
+            "-r",
+            "${workspaceFolder}/node_modules/tsconfig-paths/register",
         ],
         "args": ["index.ts"],
         "outputCapture": "std"

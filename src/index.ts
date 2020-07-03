@@ -5,6 +5,12 @@ const os = require('os');
 const path = require('path');
 const fs = require('fs');
 
+// ref: https://github.com/dividab/tsconfig-paths/issues/61
+// test module resoltion
+import sum from 'test';
+const kk = sum(1, 2);
+console.log('kk:', kk);
+
 function getFilePath() {
   // node index.ts fileName, or yarn dev fileName, or node dicom fileName
   if (process.argv.length > 2) {

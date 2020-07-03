@@ -16,8 +16,10 @@
   },
   "scripts": {
     "start": "ts-node src/index.ts",
-    "dev": "ts-node src/index.ts",
+    "dev": "ts-node -r tsconfig-paths/register src/index.ts",
     "build": "tsc",
+    "deploy": "node -r ts-node/register/transpile-only  -r tsconfig-paths/register dist/index.js",
+    "deploy2": "TS_NODE_PROJECT=tsconfig.prod.json node  -r tsconfig-paths/register dist/index.js",
     "prepare": "tsc"
   },
   "peerDependencies": {},
@@ -30,6 +32,7 @@
   "name": "cli-open-dicom-with-chrome",
   "author": "Grimmer",
   "devDependencies": {
+    "tsconfig-paths": "^3.9.0",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
   },

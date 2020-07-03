@@ -10,7 +10,7 @@
     "rootDir": "./src",
     "strict": true,
     "moduleResolution": "node",
-    "baseUrl": "src",
+    "baseUrl": "dist", // keypoint
     "paths": {
       // "*": ["src/*", "node_modules/*"],
       "test": ["test"]
