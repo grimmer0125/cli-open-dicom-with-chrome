@@ -13,7 +13,7 @@
     "baseUrl": "dist", // keypoint
     "paths": {
       // "*": ["src/*", "node_modules/*"],
-      "test": ["test"]
+      "@work/*": ["try/*"]
     },
     "esModuleInterop": true
   }

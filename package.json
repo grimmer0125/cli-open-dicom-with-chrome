@@ -20,6 +20,7 @@
     "build": "tsc",
     "deploy": "node -r ts-node/register/transpile-only  -r tsconfig-paths/register dist/index.js",
     "deploy2": "TS_NODE_PROJECT=tsconfig.prod.json node  -r tsconfig-paths/register dist/index.js",
+    "deploy3": "cp tsconfig.json dist/ && TS_NODE_PROJECT=dist/tsconfig.json node  -r tsconfig-paths/register dist/index.js",
     "prepare": "tsc"
   },
   "peerDependencies": {},

@@ -7,7 +7,10 @@ const fs = require('fs');
 
 // ref: https://github.com/dividab/tsconfig-paths/issues/61
 // test module resoltion
-import sum from 'test';
+
+import sum from '@work/test';
+
+// import sum from '@work/test';
 const kk = sum(1, 2);
 console.log('kk:', kk);
 
